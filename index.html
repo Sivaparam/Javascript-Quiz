@@ -12,18 +12,44 @@
 <body>
     <header class="header">
 
-        <a href="highscore.html">View high scores</a>
+        <a href="highscore.html" id ="viewScore">View high scores</a>
         <h1>Javascript Code Quiz</h1>
-        <p>Time:</p>
+        <p id = "clock">Time Left:</p>
     </header>
-    
-    <div>
+
+    <div id="instr">
         <p> Try to answer the following code-related questions within the time limit.
-        Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
+            Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
     </div>
-    <div class="startQuiz"><button type="button" onclick="startQuiz()">Start Quiz</button>
-        </div>
-    
-   </body>
+    <div id="quizbtn"><button type="button" onclick="startTest()">Start Quiz</button>
+    </div>
+
+    <div class="questionsection">
+        <p id=quest>questions</p>
+        <ul>
+            <li><button type="button" id="opt1" onclick="validateAnswer()">Opt1</button></li>
+            <li><button type="button" id="opt2" onclick="validateAnswer()">Opt2</button></li>
+            <li><button type="button" id="opt3" onclick="validateAnswer()">Opt3</button></li>
+            <li><button type="button" id="opt4" onclick="validateAnswer()">Opt4</button></li>
+        </ul>
+        <p id="answer">answer</p>
+    </div>
+
+    <div class="resultSection">
+        <p>All Done!</p>
+        <p id = "score">Your Final Score is: </p>
+        <p>Enter Initials</p>
+         <input type="text" id="initials"> 
+         <button type="button" onclick="captureScore()">Submit</button> 
+    </div>
+
+<div class = "displayHigh">
+    <h4>High Scores<h4>
+    <span id="saved-score"></span>
+    <button type="button">Goback</button>
+    <button type="button">Clear HighScores</button>
+</div>
+</body>
 <script src="./assets/js/script.js"></script>
+
 </html>
