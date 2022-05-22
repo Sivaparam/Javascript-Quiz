@@ -150,3 +150,23 @@ function captureScore() {
     document.getElementById("saved-score").innerHTML = currentScore;
 
 }
+
+document.getElementById("viewScore").addEventListener("click", displayAllScores);
+
+function displayAllScores() {
+    event.preventDefault();
+    document.getElementById("saved-score").innerHTML ="";
+    document.getElementsByClassName("resultSection")[0].style.display = "none";
+    document.getElementsByClassName("displayHigh")[0].style.display = "block";
+    document.getElementById("instr").style.display = "none";
+    document.getElementById("quizbtn").style.display = "none";
+    document.getElementById("answer").style.display = "none";
+
+    var allScore = [];
+    allScore = JSON.parse(localStorage.getItem("savedScore"));
+    for (i=0; i<allScore.length; i++) {
+       var button = document.createElement("button");
+       button.innerText = allScore[i];
+           document.getElementById("saved-score").appendChild(button);
+    }
+}
