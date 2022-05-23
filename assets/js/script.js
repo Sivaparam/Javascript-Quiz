@@ -54,6 +54,8 @@ var score = 0;
 var seconds = 120;
 var timerInterval;
 var timeEl = document.getElementById("clock").innerText;
+var currentScore = [];
+
 
 // Clears and prepares page to display questions 
 function startTest() {
@@ -151,6 +153,7 @@ function captureScore() {
     document.getElementById("clearScore").style.display = "none"
     document.getElementsByClassName("resultSection")[0].style.display = "none";
     document.getElementsByClassName("displaySavedScore")[0].style.display = "block";
+    document.getElementById("allScore").style.display = "none";
     document.getElementById("saveScore").innerHTML = currentScore + "%";
 
 }
@@ -163,7 +166,8 @@ document.getElementById("viewScore").addEventListener("click", displayAllScores)
 function displayAllScores() {
     event.preventDefault();
     document.getElementById("saveScore").innerHTML = "";
-    document.getElementsByClassName("displaySavedScore")[0].style.display = "block"
+    document.getElementsByClassName("displaySavedScore")[0].style.display = "block";
+    document.getElementById("yourScore").style.display = "none";
     document.getElementsByClassName("guide")[0].style.display = "none";
     document.getElementById("viewScore").style.display = "none";
     document.getElementById("goBack").style.display = "inline";
