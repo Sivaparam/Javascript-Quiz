@@ -54,13 +54,14 @@
         <p>Enter Initials <input type="text" id="initials"> <button type="button" onclick="captureScore()">Submit</button></p>
             </div>
 
+           
     <!--Below is actived when View HighScores button is clicked-->
     <!--Displays all the scores stored in local storage-->
-    <div class="displayHigh">
-        <h4>High Scores<h4>
-                <span id="saved-score"></span>
+    <div class="displaySavedScore">
+        <h2>High Scores<h2>
+                <p><span id="saveScore"></span></p>
                
-                <button type="button" onclick="clearScore()">Clear HighScores</button>
+                <button type="button" id = clearScore onclick="clearScore()">Clear HighScores</button>
     </div>
     <script src="./assets/js/script.js"></script>
 </body>

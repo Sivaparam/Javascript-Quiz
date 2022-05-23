@@ -111,6 +111,7 @@ function displayScore() {
 
     document.getElementsByClassName("questionSection")[0].style.display = "none";
     document.getElementsByClassName("resultSection")[0].style.display = "block";
+    document
 
     score = (correctAns / questions.length) * 100;
     document.getElementById("score").innerText = document.getElementById("score").innerText + score;
@@ -130,11 +131,12 @@ function startClock() {
 
 
 
-    }, 1000);
+    }, 500);
 }
 
+
 function captureScore() {
-    console.log("capture");
+   
     var savedScore;
     if (localStorage.getItem("savedScore") == undefined) {
         savedScore = [];
@@ -147,34 +149,47 @@ function captureScore() {
 
     document.getElementById("clock").style.display = "none";
     document.getElementById("viewScore").style.display = "none";
+    document.getElementById("goBack").style.display = "inline";
+    document.getElementById("clearScore").style.display ="none"
     document.getElementsByClassName("resultSection")[0].style.display = "none";
-    document.getElementsByClassName("displayHigh")[0].style.display = "block";
+    document.getElementsByClassName("displaySavedScore")[0].style.display = "block";
 
-    document.getElementById("saved-score").innerHTML = currentScore;
+    document.getElementById("saveScore").innerHTML = currentScore;
 
 }
 
 document.getElementById("viewScore").addEventListener("click", displayAllScores);
-document.getElementById("goBack").addEventListener("click", history.back);
+document.getElementById("goBack").addEventListener("click", reload);
 
 function displayAllScores() {
     event.preventDefault();
-    document.getElementById("saved-score").innerHTML ="";
-   // document.getElementsByClassName("resultSection")[0].style.display = "none";
-    document.getElementsByClassName("displayHigh")[0].style.display = "block"
+    document.getElementById("saveScore").innerHTML ="";
+    document.getElementsByClassName("displaySavedScore")[0].style.display = "block"
     document.getElementsByClassName("guide")[0].style.display = "none";
     document.getElementById("viewScore").style.display = "none";
-    document.getElementById("goBack").style.display ="block";
+    document.getElementById("goBack").style.display ="inline";
     document.getElementById("quizbtn").style.display = "none";
-  //  document.getElementById("answer").style.display = "none";
+
 
     var allScore = [];
+    
     allScore = JSON.parse(localStorage.getItem("savedScore"));
     for (i=0; i<allScore.length; i++) {
-       var button = document.createElement("button");
-       button.innerText = allScore[i];
-           document.getElementById("saved-score").appendChild(button);
+       var label = document.createElement("label");
+       
+       label.innerText = (i+1) + "." + " " + allScore[i];
+       document.getElementById("saveScore").style.display = "block";
+           document.getElementById("saveScore").appendChild(label);
+        
+          
+           
+           
+                     
     }
+}
+
+function reload() {
+    location.reload();
 }
 
 function clearScore() {
