@@ -37,12 +37,12 @@
     <!--Question & Options area-->
     <div class="questionSection">
         <p id=quest>questions</p>
-       
-            <button type="button" id="opt1" onclick="validateAnswer()">Opt1</button>
-            <button type="button" id="opt2" onclick="validateAnswer()">Opt2</button>
-            <button type="button" id="opt3" onclick="validateAnswer()">Opt3</button>
-            <button type="button" id="opt4" onclick="validateAnswer()">Opt4</button>
-        
+
+        <button type="button" id="opt1" onclick="validateAnswer()">Opt1</button>
+        <button type="button" id="opt2" onclick="validateAnswer()">Opt2</button>
+        <button type="button" id="opt3" onclick="validateAnswer()">Opt3</button>
+        <button type="button" id="opt4" onclick="validateAnswer()">Opt4</button>
+
         <p id="answer">answer</p>
     </div>
 
@@ -51,20 +51,21 @@
     <div class="resultSection">
         <p>All Done!</p>
         <p id="score">Your Final Score is: </p>
-        <p>Enter Initials <input type="text" id="initials"> <button type="button" onclick="captureScore()">Submit</button></p>
-            </div>
+        <p>Enter Initials <input type="text" id="initials"> <button type="button"
+                onclick="captureScore()">Submit</button></p>
+    </div>
 
-           
     <!--Below is actived when View HighScores button is clicked-->
     <!--Displays all the scores stored in local storage-->
     <div class="displaySavedScore">
         <h2>High Scores<h2>
                 <p><span id="saveScore"></span></p>
-               
-                <button type="button" id = clearScore onclick="clearScore()">Clear HighScores</button>
-    </div>
-    <script src="./assets/js/script.js"></script>
-</body>
 
+                <button type="button" id=clearScore onclick="clearScore()">Clear HighScores</button>
+    </div>
+
+    <script src="./assets/js/script.js"></script>
+
+</body>
 
 </html>
