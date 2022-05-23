@@ -10,46 +10,60 @@
 </head>
 
 <body>
-    <header class="header">
-
-        <a href="highscore.html" id ="viewScore">View high scores</a>
+    <!--Page header-->
+    <header class="homePage">
         <h1>Javascript Code Quiz</h1>
-        <p id = "clock">Time Left:</p>
     </header>
 
-    <div id="instr">
-        <p> Try to answer the following code-related questions within the time limit.
-            Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
-    </div>
-    <div id="quizbtn"><button type="button" onclick="startTest()">Start Quiz</button>
+    <!--tag/element for highscore and timer-->
+    <div>
+        <p id="viewScore"><button type="button">View HighScores</button></p>
+        <p id="clock">Time Left:</p>
+        <p id="goBack"><button type="button">Go back</button></p>
     </div>
 
-    <div class="questionsection">
+    <!--Element to display instrucitons for Quiz-->
+    <div class="guide">
+        <p> Try to answer the following code-related questions within the time limit.</p>
+        <p> Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
+    </div>
+
+    <!--Start Quix button-->
+    <div id="quizbtn">
+        <button type="button" onclick="startTest()">Start Quiz</button>
+    </div>
+
+    <!--Below will be actived when start quix button is clicked-->
+    <!--Question & Options area-->
+    <div class="questionSection">
         <p id=quest>questions</p>
-        <ul>
-            <li><button type="button" id="opt1" onclick="validateAnswer()">Opt1</button></li>
-            <li><button type="button" id="opt2" onclick="validateAnswer()">Opt2</button></li>
-            <li><button type="button" id="opt3" onclick="validateAnswer()">Opt3</button></li>
-            <li><button type="button" id="opt4" onclick="validateAnswer()">Opt4</button></li>
-        </ul>
+       
+            <button type="button" id="opt1" onclick="validateAnswer()">Opt1</button>
+            <button type="button" id="opt2" onclick="validateAnswer()">Opt2</button>
+            <button type="button" id="opt3" onclick="validateAnswer()">Opt3</button>
+            <button type="button" id="opt4" onclick="validateAnswer()">Opt4</button>
+        
         <p id="answer">answer</p>
     </div>
 
+    <!--Below section will be actived when all qeustions are answered or when no time is left-->
+    <!--Display scores and request to enter Initials to store scores-->
     <div class="resultSection">
         <p>All Done!</p>
-        <p id = "score">Your Final Score is: </p>
-        <p>Enter Initials</p>
-         <input type="text" id="initials"> 
-         <button type="button" onclick="captureScore()">Submit</button> 
-    </div>
+        <p id="score">Your Final Score is: </p>
+        <p>Enter Initials <input type="text" id="initials"> <button type="button" onclick="captureScore()">Submit</button></p>
+            </div>
 
-<div class = "displayHigh">
-    <h4>High Scores<h4>
-    <span id="saved-score"></span>
-    <button type="button">Goback</button>
-    <button type="button">Clear HighScores</button>
-</div>
+    <!--Below is actived when View HighScores button is clicked-->
+    <!--Displays all the scores stored in local storage-->
+    <div class="displayHigh">
+        <h4>High Scores<h4>
+                <span id="saved-score"></span>
+               
+                <button type="button" onclick="clearScore()">Clear HighScores</button>
+    </div>
+    <script src="./assets/js/script.js"></script>
 </body>
-<script src="./assets/js/script.js"></script>
+
 
 </html>

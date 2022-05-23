@@ -59,10 +59,13 @@ var timeEl = document.getElementById("clock").innerText;
 // Clears and prepares page to display questions 
 
 function startTest() {
-    document.getElementById("instr").style.display = "none";
+    document.getElementsByClassName("guide")[0].style.display = "none";
     document.getElementById("quizbtn").style.display = "none";
     document.getElementById("answer").style.display = "none";
-    document.getElementsByClassName("questionsection")[i].style.display = "block";
+    document.getElementById("viewScore").style.display = "none";
+    document.getElementById("goBack").style.display = "none";
+    document.getElementById("clock").style.display = "block";
+    document.getElementsByClassName("questionSection")[i].style.display = "block";
 
     startClock();
     displayQuestion();
@@ -106,8 +109,8 @@ function validateAnswer() {
 // Displays final calcuated score 
 function displayScore() {
 
-    document.getElementsByClassName("questionsection")[0].style.display = "none";
-    document.getElementsByClassName("resultSection")[0].style.display = "inline";
+    document.getElementsByClassName("questionSection")[0].style.display = "none";
+    document.getElementsByClassName("resultSection")[0].style.display = "block";
 
     score = (correctAns / questions.length) * 100;
     document.getElementById("score").innerText = document.getElementById("score").innerText + score;
@@ -145,22 +148,25 @@ function captureScore() {
     document.getElementById("clock").style.display = "none";
     document.getElementById("viewScore").style.display = "none";
     document.getElementsByClassName("resultSection")[0].style.display = "none";
-    document.getElementsByClassName("displayHigh")[0].style.display = "inline";
+    document.getElementsByClassName("displayHigh")[0].style.display = "block";
 
     document.getElementById("saved-score").innerHTML = currentScore;
 
 }
 
 document.getElementById("viewScore").addEventListener("click", displayAllScores);
+document.getElementById("goBack").addEventListener("click", history.back);
 
 function displayAllScores() {
     event.preventDefault();
     document.getElementById("saved-score").innerHTML ="";
-    document.getElementsByClassName("resultSection")[0].style.display = "none";
-    document.getElementsByClassName("displayHigh")[0].style.display = "block";
-    document.getElementById("instr").style.display = "none";
+   // document.getElementsByClassName("resultSection")[0].style.display = "none";
+    document.getElementsByClassName("displayHigh")[0].style.display = "block"
+    document.getElementsByClassName("guide")[0].style.display = "none";
+    document.getElementById("viewScore").style.display = "none";
+    document.getElementById("goBack").style.display ="block";
     document.getElementById("quizbtn").style.display = "none";
-    document.getElementById("answer").style.display = "none";
+  //  document.getElementById("answer").style.display = "none";
 
     var allScore = [];
     allScore = JSON.parse(localStorage.getItem("savedScore"));
@@ -169,4 +175,8 @@ function displayAllScores() {
        button.innerText = allScore[i];
            document.getElementById("saved-score").appendChild(button);
     }
+}
+
+function clearScore() {
+    localStorage.clear();
 }

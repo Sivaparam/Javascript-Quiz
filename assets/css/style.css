@@ -1,27 +1,73 @@
+/* Style for entire body */
 body {
-    background-color: beige;
+    background-color: blanchedalmond;
     color: black;
+    align-items: center;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-.header {
-    display: flex;
+/* style for buttons */
+button {
+    color: black;
+    background-color: rgb(0, 191, 255);
+    border-style: double;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+/* Hover style for buttons */
+button:hover {
+    background-color: aqua;
+}
+
+/* Alignment for header class */
+.homePage {
     margin-bottom: 10px;
     padding: 10px;
     height: auto;
-    flex-direction: row;
-    justify-content: space-evenly;
+    text-align: center;
+    background-color: rgb(245, 233, 143);
 }
 
-.questionsection {
-    display: none;
-
+/* Alignment for Viewhighscore button and timer */
+#viewScore,
+#goBack,
+#clock {
+    float: right;
+    display: block;
+    margin-right: 50px;
+    margin-bottom: 20px;
 }
 
-.resultSection {
+/* style for instructions/guidelines section */
+.guide {
+    text-align: center;
+    margin-top: 3cm;
+    margin-bottom: 2cm;
+}
+
+/* style for startquiz button */
+#quizbtn {
+    text-align: center;
+}
+
+/* Style to hide others section on home page */
+.questionSection, .displayHigh, .resultSection {
+    display: none;
+    margin-top: 50px;
+    margin-left: 20px;
+}
+
+
+#clock, #goBack{
     display: none;
 }
 
-.displayHigh {
-    display: none;
+
+
+
+#opt1, #opt2, #opt3, #opt4 {
+    display: block ;
+    margin-bottom: 10px;
 }
